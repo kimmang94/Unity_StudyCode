@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
     string oldAnime = "";
 
     public static string gameState = "playing";
+    public int score = 0;
+
+
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
@@ -33,6 +36,7 @@ public class PlayerController : MonoBehaviour
         oldAnime = stopAnime;
 
         gameState = "playing";
+
     }
 
     void Update()
@@ -118,6 +122,12 @@ public class PlayerController : MonoBehaviour
         else if (collision.gameObject.tag == "Dead")
         {
             Dead();
+        }
+        else if (collision.gameObject.tag == "ScoreItem")
+        {
+            ItemData item = collision.gameObject.GetComponent<ItemData>();
+            score = item.value;
+            Destroy(collision.gameObject);
         }
     }
 
