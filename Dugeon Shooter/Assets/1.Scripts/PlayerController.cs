@@ -145,7 +145,7 @@ public class PlayerController : MonoBehaviour
             {
                 rbody.velocity = new Vector2(0, 0);
                 Vector3 toPos = (transform.position - enemy.transform.position).normalized;
-                rbody.AddForce(new Vector2(toPos.x * 4, toPos.y * 4), ForceMode2D.Impulse));
+                rbody.AddForce(new Vector2(toPos.x * 4, toPos.y * 4), ForceMode2D.Impulse);
                 inDamage = true;
                 Invoke("DamageEnd", 0.25f);
             }
